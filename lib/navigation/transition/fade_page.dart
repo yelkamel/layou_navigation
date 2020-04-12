@@ -5,7 +5,7 @@ class FadePage extends PageRouteBuilder {
 
   FadePage({this.screen})
       : super(
-          transitionDuration: Duration(seconds: 1),
+          transitionDuration: Duration(milliseconds: 500),
           pageBuilder: (BuildContext context, Animation<double> animation,
               Animation<double> secAnimation) {
             return FadeTransition(

@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:navigation/navigation/top_bottom.dart';
-import 'package:navigation/screen/stack/setting.dart';
+import 'package:navigation/navigation/transition/top_bottom.dart';
 import 'package:navigation/service/locator.dart';
 import 'package:navigation/service/navigation.dart';
+import 'package:navigation/widget/button/go_setting.dart';
 
 class ProfilScreen extends StatelessWidget {
-  final String title;
+  const ProfilScreen({Key key}) : super(key: key);
 
-  const ProfilScreen({Key key, this.title}) : super(key: key);
-
-  static Route<dynamic> route(String userEmail) {
+  static Route<dynamic> route() {
     return TopBottomPage(
-      screen: ProfilScreen(
-        title: userEmail,
-      ),
+      screen: ProfilScreen(),
     );
   }
 
@@ -23,20 +19,11 @@ class ProfilScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        leading: GestureDetector(
-          onTap: () {
-            locator<Navigation>().navigateTo(
-              SettingScreen.route('SETTING'),
-            );
-          },
-          child: Icon(Icons.settings),
-        ),
+        leading: GoSetting(),
         backgroundColor: Colors.transparent,
         actions: [
           GestureDetector(
-            onTap: () {
-              locator<Navigation>().goBack();
-            },
+            onTap: locator<Navigation>().goBack,
             child: Icon(
               Icons.close,
               color: Colors.red,
@@ -59,7 +46,6 @@ class ProfilScreen extends StatelessWidget {
             ),
             Text("Profil"),
             SizedBox(height: 10),
-            Text(title),
           ],
         ),
       ),

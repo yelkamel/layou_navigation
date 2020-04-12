@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:navigation/navigation/left_page.dart';
+import 'package:navigation/navigation/transition/left_page.dart';
 import 'package:navigation/service/locator.dart';
 import 'package:navigation/service/navigation.dart';
 
 class SettingScreen extends StatelessWidget {
-  final String title;
+  const SettingScreen({Key key}) : super(key: key);
 
-  const SettingScreen({Key key, this.title}) : super(key: key);
-
-  static Route<dynamic> route(String text) {
+  static Route<dynamic> route() {
     return LeftPage(
-      screen: SettingScreen(
-        title: text,
-      ),
+      screen: SettingScreen(),
     );
   }
 
@@ -24,14 +20,20 @@ class SettingScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: GestureDetector(
-          onTap: () {
-            locator<Navigation>().goBack();
-          },
+          onTap: locator<Navigation>().goBack,
           child: Icon(
             Icons.arrow_back,
             color: Colors.red,
           ),
         ),
+        title: Hero(
+          tag: 'setting',
+          child: Icon(
+            Icons.settings,
+            color: Colors.red,
+          ),
+        ),
+        centerTitle: true,
       ),
       backgroundColor: Colors.amber,
       body: Center(
@@ -39,7 +41,6 @@ class SettingScreen extends StatelessWidget {
           children: <Widget>[
             Text("Setting"),
             SizedBox(height: 10),
-            Text(title),
           ],
         ),
       ),

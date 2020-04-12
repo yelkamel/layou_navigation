@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:navigation/navigation/slide_page.dart';
+import 'package:navigation/navigation/transition/slide_page.dart';
 
 import 'package:navigation/service/locator.dart';
 import 'package:navigation/service/navigation.dart';
@@ -25,9 +25,7 @@ class PlayerScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: GestureDetector(
-          onTap: () {
-            locator<Navigation>().goBack();
-          },
+          onTap: locator<Navigation>().goBack,
           child: Icon(
             Icons.arrow_back,
             color: Colors.red,

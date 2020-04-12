@@ -1,9 +1,24 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:navigation/screen/tab/home.dart';
+import 'package:flutter/services.dart';
 import 'package:navigation/service/locator.dart';
 import 'package:navigation/service/navigation.dart';
+import 'package:navigation/widget/home/home.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Blocker l'orientation vertical
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+
+  // Navigation color change
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.deepOrange,
+    systemNavigationBarIconBrightness: Brightness.light,
+  ));
+
   setupLocator();
   runApp(MyApp());
 }
@@ -39,11 +54,17 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
+  bool isLoading = true;
+
   @override
-  void initState() {
-    super.initState();
-    Future.delayed(Duration(seconds: 1), () {
-      locator<Navigation>().navigateTo(HomeTab.route('yelkamel@gmail.com'));
+  void didChangeDependencies() async {
+    super.didChangeDependencies();
+    scheduleMicrotask(() {
+      Future.delayed(Duration(seconds: 1), () {
+        setState(() {
+          isLoading = false;
+        });
+      });
     });
   }
 
@@ -51,9 +72,7 @@ class _MainState extends State<Main> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.red,
-      body: Center(
-        child: CircularProgressIndicator(),
-      ),
+      body: Center(child: false ? CircularProgressIndicator() : Home()),
     );
   }
 }
