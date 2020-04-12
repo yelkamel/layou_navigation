@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:navigation/widget/utils/screen_size.dart';
+import 'package:navigation/subapp/utils/screen_size.dart';
 
 class MiddleTab extends StatelessWidget {
   Widget _buildCataogueItem() {
@@ -16,6 +16,7 @@ class MiddleTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(children: [
       SingleChildScrollView(
+        padding: EdgeInsets.only(top: 600.0),
         child: Column(
           children: <Widget>[
             YMargin(600),

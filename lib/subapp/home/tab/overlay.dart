@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:navigation/widget/button/go_profil.dart';
+import 'package:navigation/button/go_profil.dart';
 
 class MainOverlay extends StatelessWidget {
   @override

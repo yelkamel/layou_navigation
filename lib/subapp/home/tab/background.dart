@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:navigation/widget/home/model.dart';
 import 'package:provider/provider.dart';
 import 'dart:math' as math;
 import 'package:flutter/scheduler.dart' show timeDilation;
+
+import '../model.dart';
 
 class ImageBackground extends StatelessWidget {
   @override

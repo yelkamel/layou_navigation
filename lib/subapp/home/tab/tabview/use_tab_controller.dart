@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:navigation/widget/home/model.dart';
 import 'package:provider/provider.dart';
+
+import '../../model.dart';
 
 ValueNotifier<TabController> useTabController<T>(
     BuildContext context, int lenght, int initialIndex) {

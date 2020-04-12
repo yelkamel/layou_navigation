@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:navigation/widget/home/tab/background.dart';
-import 'package:navigation/widget/home/tab/overlay.dart';
-import 'package:navigation/widget/home/tab/tabview/index.dart';
+
 import 'package:provider/provider.dart';
 
 import '../model.dart';
+import 'background.dart';
+import 'overlay.dart';
+import 'tabview/index.dart';
 
 class HomeWrapper extends StatelessWidget {
   @override
