@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:navigation/widget/home/model.dart';
-import 'package:navigation/widget/home/tab/home_wrapper.dart';
+import 'package:navigation/subapp/home/model.dart';
+import 'package:navigation/subapp/home/tab/home_wrapper.dart';
 
 import 'package:provider/provider.dart';
 

@@ -2,20 +2,24 @@ import 'package:flutter/material.dart';
 
 class HomeModel extends ChangeNotifier {
   TabController tabController;
-
+  bool exit = true;
   HomeModel();
 
   Future<bool> onBackPressed() async {
-    // mais bwerk
-    return Future.delayed(Duration(milliseconds: 100), () {
-      return true;
+    tabController.animateTo(1);
+    Future.delayed(Duration(seconds: 1), () {
+      exit = true;
     });
+    return (exit);
+  }
 
-    /// final isHomePage
+  void onTabChange() {
+    exit = tabController.index != 1;
   }
 
   void setTabcontroller(TabController controller) {
     tabController = controller;
+    tabController.addListener(onTabChange);
     notifyListeners();
   }
 }

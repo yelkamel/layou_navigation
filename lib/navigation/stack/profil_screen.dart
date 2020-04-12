@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:navigation/button/go_setting.dart';
 import 'package:navigation/navigation/transition/top_bottom.dart';
 import 'package:navigation/service/locator.dart';
 import 'package:navigation/service/navigation.dart';
-import 'package:navigation/widget/button/go_setting.dart';
 
 class ProfilScreen extends StatelessWidget {
   const ProfilScreen({Key key}) : super(key: key);
