@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:navigation/subapp/utils/screen_size.dart';
+import 'package:navigation/utils/screen_size.dart';
 
 class MiddleTab extends StatelessWidget {
   Widget _buildCataogueItem() {
